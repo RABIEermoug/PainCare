@@ -24,7 +24,7 @@
 
     <div class="form signup">
         <div class="form-content">
-            <header>Signup</header>
+            <header>Sign Up</header>
             <form action="Signup" method="post">
             
             <div class="field input-field">
