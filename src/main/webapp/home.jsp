@@ -35,7 +35,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     
     
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 
 
@@ -91,12 +92,18 @@
                                             </li>
                                              <li><a href="services.html">Community</a></li>
                                             <li><a href="contact.html">Contact</a></li>   
-                                             <li>
-                                              
-                                                     <a><i class="bi bi-person-lines-fill"></i></a>   
-                                                    
+                                             <li>  
+												            <a><i class="bi bi-person-lines-fill"></i></a>   
+												            <ul class="submenu">
+			                                                    <li><a href=""><i class="bi bi-person-circle"></i> Profile</a></li>
+			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
+			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
+			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>
+			                                                    <li><a href=""><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
+			                                               </ul>
+														                  
                                             </li>
-                                            <li><a href="contact.html"><i class="bi bi-bell-fill"></i></a></li>                                            
+                                                                                  
                                         </ul>
                                     </nav>
                                 </div>
@@ -155,7 +162,7 @@
             <div class="col-lg-7 col-md-12">
                 <!-- about-img -->
                 <div class="about-img ">
-                    <img src="assets/img/gallery/about.png" alt="">
+                    <img src="assets/img/gallery/image1.jpg" alt="" style="border-radius: 50%;overflow: hidden;width: 80%;">
                 </div>
             </div>
             <div class="col-lg-5 col-md-12">
@@ -170,8 +177,7 @@
                         dignissim dolor, a pretium mi sem ut ipsum. Fusce
                     fermentum. Pellentesque libero tortor, tincidunt et.</p>
                     <div class="icon-about">
-                     <img src="assets/img/icon/about1.svg" alt="" class=" mr-20">
-                     <img src="assets/img/icon/about2.svg" alt="">
+                     
                  </div>
              </div>
          </div>
@@ -311,14 +317,14 @@
                             <h2>100% satisfaction guaranteed.</h2>
                         </div>
                         <p>Almost before we knew it, we had left the ground</p>
-                        <a href="about.html" class="border-btn">Make an Appointment</a>
+                        <a href="about.html" class="border-btn">Make a test</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <!-- about-img -->
                     <div class="about-img">
                         <div class="about-font-img">
-                            <img src="assets/img/gallery/about2.png" alt="">
+                            <img src="assets/img/gallery/image_footer.jpg" alt="" style="border-bottom-left-radius: 25%;;overflow: hidden;">
                         </div>
                     </div>
                 </div>
@@ -330,7 +336,7 @@
 </main>
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <footer>
     <div class="footer-wrappr section-bg3" data-background="assets/img/gallery/footer-bg.png">
         <div class="footer-area footer-padding ">
@@ -342,7 +348,7 @@
                             <div class="footer-logo mb-25">
                                 <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                             </div>
-                            <d iv class="header-area">
+                            <div class="header-area">
                                 <div class="main-header main-header2">
                                     <div class="menu-main d-flex align-items-center justify-content-start">
                                         <!-- Main-menu -->
@@ -350,16 +356,17 @@
                                             <nav> 
                                                 <ul>
                                                     <li><a href="index.html">Home</a></li>
-                                                    <li><a href="about.html">About</a></li>
+                                                    <li><a href="index.html">Endometriosis</a></li>
+                                                    <li><a href="about.html">News</a></li>
                                                     <li><a href="services.html">Services</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog.html">Community</a></li>
                                                     <li><a href="contact.html">Contact</a></li>
                                                 </ul>
                                             </nav>
                                         </div>
                                     </div>  
                                 </div>
-                            </d>
+                            </div>
                             <!-- social -->
                             <div class="footer-social mt-50">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -370,17 +377,17 @@
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                         <div class="single-footer-caption">
-                            <div class="footer-tittle mb-50">
-                                <h4>Subscribe newsletter</h4>
+                            <div class="footer-tittle mb-50" style="text-align: center;">
+                                <h4>Get in touch</h4>
                             </div>
                             <!-- Form -->
                             <div class="footer-form">
                                 <div id="mc_embed_signup">
                                     <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                        <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'">
+                                        <input type="text" name="message"  placeholder=" Message " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'">
                                         <div class="form-icon">
                                             <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
-                                                Subscribe
+                                                Contact us
                                             </button>
                                         </div>
                                         <div class="mt-10 info"></div>
@@ -389,7 +396,7 @@
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium misem ut ipsum.</p>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
@@ -460,13 +467,6 @@
 <script src="./assets/js/main.js"></script>
 
 
-<!-- menu-bar-profile -->	
-<script>
-        function toggleDropdown() {
-            const dropdown = document.getElementById('userDropdown');
-            dropdown.classList.toggle('active');
-        }
-</script>
 
 </body>
 </html>
