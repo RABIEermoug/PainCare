@@ -71,7 +71,7 @@
                                     <nav> 
                                         <ul id="navigation">
                                             <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">Endometriosis</a>
+                                            <li><a href="about.html">Endometriosiss</a>
 	                                             <ul class="submenu">
 	                                                    <li><a href="blog.html">Symptoms</a></li>
 	                                                    <li><a href="blog_details.html">Causes</a></li>
