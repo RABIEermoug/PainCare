@@ -1,4 +1,4 @@
-package paincare.servlets;
+package paincare.servlets.user;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -43,7 +43,7 @@ public class Signup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		  // Récupérer les données du formulaire
-        String nom = request.getParameter("name");
+        String nom = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String dateTimeStr = request.getParameter("dateTime");
@@ -56,7 +56,7 @@ public class Signup extends HttpServlet {
         userEntity.setDateTime(new java.sql.Timestamp(System.currentTimeMillis()));
 
         // Ajouter l'utilisateur à la base de données
-        UserDao userDAO = new UserDaoImp(DAOFactory.getInstance()); // Remplacez DAOFactory.getInstance() par votre méthode pour obtenir une instance de DAOFactory
+        UserDao userDAO = new UserDaoImp(DAOFactory.getInstance());  // Remplacez DAOFactory.getInstance() par votre méthode pour obtenir une instance de DAOFactory
         try {
             boolean isExist = userDAO.isExist(email);
             if (isExist) {
@@ -66,8 +66,7 @@ public class Signup extends HttpServlet {
 
             } else {
                 userDAO.addUser(userEntity);
-                this.getServletContext().getRequestDispatcher("/authuser.jsp").forward(request, response);
-
+                this.getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
             }
         } catch (Exception e) {
 

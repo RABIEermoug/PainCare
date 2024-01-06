@@ -23,7 +23,7 @@ public class UserDaoImp implements UserDao {
 	    private static UserEntity map( ResultSet resultSet ) throws SQLException {
 	        UserEntity userEntity = new UserEntity();
 
-	        userEntity.setIdUser(resultSet.getInt("id_user"));
+	        userEntity.setIdUser(resultSet.getInt("iduser"));
 	        userEntity.setName(resultSet.getString("name"));
 	        userEntity.setEmail(resultSet.getString("email"));
 	        userEntity.setPassword(resultSet.getString("password"));
@@ -126,7 +126,7 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 			    }
 		}
 		
-	    private static final String SQL_DELETE_USER = "DELETE FROM user WHERE id_user = ?";
+	    private static final String SQL_DELETE_USER = "DELETE FROM user WHERE iduser = ?";
 		@Override
 		public void deleteUser(Long userId) {
 			// TODO Auto-generated method stub
@@ -149,7 +149,27 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 		@Override
 		public UserEntity isValidUser(String email, String password) throws SQLException {
 			// TODO Auto-generated method stub
-			return null;
+			  Connection connection = null;
+		        PreparedStatement preparedStatement = null;
+		        UserEntity userEntity = null;
+		        ResultSet resultSet = null;
+		        try {
+		            // Récupérer une connexion depuis la DAOFactory
+		            connection = daoFactory.getConnection();
+
+		            String sql = "SELECT * FROM user WHERE email = ? and password= ? ";
+		            preparedStatement = connection.prepareStatement(sql);
+
+		            preparedStatement.setString(1, email);
+		            preparedStatement.setString(2, password);
+		            resultSet = preparedStatement.executeQuery();
+		            if (resultSet.next()) {
+		                userEntity = map(resultSet);
+		            }
+		        } catch (SQLException e) {
+		            throw new DAOException(e);
+		        }
+		        return userEntity;
 		}
 
 		@Override
@@ -162,7 +182,7 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 	        // Récupérer une connexion depuis la DAOFactory
 	        connection = daoFactory.getConnection();
 
-	        String sql = "SELECT id_user FROM user WHERE email = ? ";
+	        String sql = "SELECT iduser FROM user WHERE email = ? ";
 	        preparedStatement = connection.prepareStatement(sql);
 	        preparedStatement.setString(1, email);
 	        ResultSet resultSet = preparedStatement.executeQuery();
