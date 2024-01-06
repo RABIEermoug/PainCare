@@ -108,7 +108,7 @@
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block ml-14">
-                                    <a href="#" class="btn header-btn">Start your test now !</a>
+                                    <a href="addBlog.jsp" class="btn header-btn">Start your test now !</a>
                                 </div>
                                 
                                 

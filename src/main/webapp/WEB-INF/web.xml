@@ -39,4 +39,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BlogServlet</display-name>
+    <servlet-name>BlogServlet</servlet-name>
+    <servlet-class>paincare.servlets.Blog.BlogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BlogServlet</servlet-name>
+    <url-pattern>/addBlog</url-pattern>
+  </servlet-mapping>
 </web-app>
