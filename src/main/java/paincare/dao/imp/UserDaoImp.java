@@ -23,11 +23,14 @@ public class UserDaoImp implements UserDao {
 	    private static UserEntity map( ResultSet resultSet ) throws SQLException {
 	        UserEntity userEntity = new UserEntity();
 
-	        userEntity.setIdUser(resultSet.getInt("id_user"));
+	        userEntity.setIdUser(resultSet.getInt("iduser"));
 	        userEntity.setName(resultSet.getString("name"));
 	        userEntity.setEmail(resultSet.getString("email"));
 	        userEntity.setPassword(resultSet.getString("password"));
 	        userEntity.setDateTime(resultSet.getTimestamp("date_time"));
+	        userEntity.setBirthday(resultSet.getDate("birthday"));
+	        userEntity.setImage(resultSet.getBytes("image")); 
+
 	        //System.out.println(userEntity);
 	        return userEntity;
 	    }
@@ -82,10 +85,32 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 	            e.printStackTrace(); // Gérer les exceptions liées à la fermeture des ressources
 	        }
 	    }
+		
+	    private static final String SQL_SELECT_PAR_ID = "SELECT * FROM user where iduser = ? ";
 		@Override
 		public UserEntity getUserById(int userId) {
 			// TODO Auto-generated method stub
-			return null;
+
+	        Connection connexion = null;
+	        PreparedStatement preparedStatement = null;
+	        ResultSet resultSet = null;
+	        UserEntity user = null;
+
+	        try {
+	            /* Récupération d'une connexion depuis la Factory */
+	            connexion = daoFactory.getConnection();
+	            preparedStatement = initRequestPrepare( connexion, SQL_SELECT_PAR_ID , userId);
+	            resultSet = preparedStatement.executeQuery();
+	            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+	            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+	            if (resultSet.next()) {
+	                user = map(resultSet);
+	                System.out.println(resultSet.getString("name"));
+	            }
+	        } catch ( SQLException e ) {
+	            throw new DAOException( e );
+	        }
+	        return user;
 		}
 
 		@Override
@@ -105,19 +130,19 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 			        connection = daoFactory.getConnection();
 
 			        // Requête SQL de mise à jour
-			        String sql = "UPDATE user SET name=?, email=?, password=?, date_time=? WHERE user_id=?";
+			        String sql = "UPDATE user SET name=?, email=?, birthday=? WHERE iduser=?";
 
 			        // Préparer la requête avec les valeurs de l'utilisateur
 			        preparedStatement = connection.prepareStatement(sql);
 			        preparedStatement.setString(1, user.getName());
 			        preparedStatement.setString(2, user.getEmail());
-			        preparedStatement.setString(3, user.getPassword());
-			        preparedStatement.setTimestamp(4, user.getDateTime());
-			        preparedStatement.setLong(5, user.getIdUser()); // Assurez-vous d'avoir un identifiant utilisateur pour savoir quel utilisateur mettre à jour
+			        preparedStatement.setDate(3, user.getBirthday());
+			        preparedStatement.setLong(4, user.getIdUser()); // Assurez-vous d'avoir un identifiant utilisateur pour savoir quel utilisateur mettre à jour
 
 			        // Exécuter la requête de mise à jour
 			        preparedStatement.executeUpdate();
 			    } catch (SQLException e) {
+
 			        // Gérer les exceptions liées à la base de données
 			        e.printStackTrace(); // Vous pouvez remplacer cela par une gestion plus appropriée des exceptions
 			    } finally {
@@ -126,30 +151,89 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 			    }
 		}
 		
-	    private static final String SQL_DELETE_USER = "DELETE FROM user WHERE id_user = ?";
-		@Override
-		public void deleteUser(Long userId) {
+	    @Override
+		public void updateImageUser(UserEntity user) {
 			// TODO Auto-generated method stub
-			  Connection connection = null;
+			// TODO Auto-generated method stub
+			 Connection connection = null;
 		        PreparedStatement preparedStatement = null;
 
 		        try {
 		            connection = daoFactory.getConnection();
-		            preparedStatement = connection.prepareStatement(SQL_DELETE_USER);
-		            preparedStatement.setLong(1, userId);
+		            String sql = "UPDATE user SET image=? WHERE iduser=?";
+		            preparedStatement = connection.prepareStatement(sql);
 
+
+		            preparedStatement.setBytes(1, user.getImage());
+		            preparedStatement.setInt(2, user.getIdUser());
+		            
 		            preparedStatement.executeUpdate();
 		        } catch (SQLException e) {
-		            throw new DAOException("Error deleting user with ID: " + userId, e);
+		            throw new DAOException("Error adding data to the database", e);
 		        } finally {
+		            ResultSet resultSet = null;
 		            closeResources(preparedStatement, connection);
 		        }
+			
+		}
+
+	
+		@Override
+		public void deleteUser(Long userId) {
+			 Connection connection = null;
+		        PreparedStatement preparedStatement = null;
+
+		        try {
+		            connection = daoFactory.getConnection();
+
+		            // Supprimer tous les commentaires de l'utilisateur
+		            String deleteCommentsSQL = "DELETE FROM commentaire WHERE user_id  = ?)";
+		            preparedStatement = initRequestPrepare(connection, deleteCommentsSQL, userId);
+		            preparedStatement.executeUpdate();
+
+		            // Supprimer tous les blogs de l'utilisateur
+		            String deleteBlogsSQL = "DELETE FROM blog WHERE user_id = ?";
+		            preparedStatement = initRequestPrepare(connection, deleteBlogsSQL, userId);
+		            preparedStatement.executeUpdate();
+
+		            // Supprimer l'utilisateur
+		            String deleteUserSQL = "DELETE FROM user WHERE iduser = ?";
+		            preparedStatement = initRequestPrepare(connection, deleteUserSQL, userId);
+		            preparedStatement.executeUpdate();
+
+		        } catch (SQLException e) {
+		            throw new DAOException("Error deleting user and associated data from the database", e);
+		        } finally {
+		            closeResources( preparedStatement, connection);
+		        }
+		    
+
 		}
 
 		@Override
 		public UserEntity isValidUser(String email, String password) throws SQLException {
 			// TODO Auto-generated method stub
-			return null;
+			  Connection connection = null;
+		        PreparedStatement preparedStatement = null;
+		        UserEntity userEntity = null;
+		        ResultSet resultSet = null;
+		        try {
+		            // Récupérer une connexion depuis la DAOFactory
+		            connection = daoFactory.getConnection();
+
+		            String sql = "SELECT * FROM user WHERE email = ? and password= ? ";
+		            preparedStatement = connection.prepareStatement(sql);
+
+		            preparedStatement.setString(1, email);
+		            preparedStatement.setString(2, password);
+		            resultSet = preparedStatement.executeQuery();
+		            if (resultSet.next()) {
+		                userEntity = map(resultSet);
+		            }
+		        } catch (SQLException e) {
+		            throw new DAOException(e);
+		        }
+		        return userEntity;
 		}
 
 		@Override
@@ -162,7 +246,7 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 	        // Récupérer une connexion depuis la DAOFactory
 	        connection = daoFactory.getConnection();
 
-	        String sql = "SELECT id_user FROM user WHERE email = ? ";
+	        String sql = "SELECT iduser FROM user WHERE email = ? ";
 	        preparedStatement = connection.prepareStatement(sql);
 	        preparedStatement.setString(1, email);
 	        ResultSet resultSet = preparedStatement.executeQuery();

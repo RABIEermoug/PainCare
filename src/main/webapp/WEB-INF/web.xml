@@ -8,7 +8,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>HomeServlet</servlet-name>
-    <url-pattern>/HomeServlet</url-pattern>
+    <url-pattern>/Home</url-pattern>
   </servlet-mapping>
   <display-name>PainCare</display-name>
   <welcome-file-list>
@@ -21,22 +21,102 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>SignupServlet</display-name>
-    <servlet-name>SignupServlet</servlet-name>
-    <servlet-class>paincare.servlets.user.SignupServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SignupServlet</servlet-name>
-    <url-pattern>/SignupServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Signup</display-name>
     <servlet-name>Signup</servlet-name>
-    <servlet-class>paincare.servlets.Signup</servlet-class>
+    <servlet-class>paincare.servlets.user.Signup</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Signup</servlet-name>
     <url-pattern>/Signup</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>paincare.servlets.user.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BlogServlet</display-name>
+    <servlet-name>BlogServlet</servlet-name>
+    <servlet-class>paincare.servlets.Blog.BlogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BlogServlet</servlet-name>
+    <url-pattern>/addBlog</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AllBlogsServlet</display-name>
+    <servlet-name>AllBlogsServlet</servlet-name>
+    <servlet-class>paincare.servlets.Blog.AllBlogsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllBlogsServlet</servlet-name>
+    <url-pattern>/AllBlogs</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCommentaireServlet</display-name>
+    <servlet-name>AddCommentaireServlet</servlet-name>
+    <servlet-class>paincare.servlets.Blog.AddCommentaireServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCommentaireServlet</servlet-name>
+    <url-pattern>/AddCommentaire</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SuiviServlet</display-name>
+    <servlet-name>SuiviServlet</servlet-name>
+    <servlet-class>paincare.servlets.suivi.SuiviServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SuiviServlet</servlet-name>
+    <url-pattern>/Suivi</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>paincare.servlets.user.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditUserServlet</display-name>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class>paincare.servlets.user.EditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserServlet</servlet-name>
+    <url-pattern>/EditUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditImageServlet</display-name>
+    <servlet-name>EditImageServlet</servlet-name>
+    <servlet-class>paincare.servlets.user.EditImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditImageServlet</servlet-name>
+    <url-pattern>/EditImage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileServlet</display-name>
+    <servlet-name>ProfileServlet</servlet-name>
+    <servlet-class>paincare.servlets.user.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileServlet</servlet-name>
+    <url-pattern>/Profile</url-pattern>
   </servlet-mapping>
 </web-app>

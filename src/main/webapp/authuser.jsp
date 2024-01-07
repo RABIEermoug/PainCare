@@ -75,29 +75,22 @@
     <div class="form signup">
         <div class="form-content">
             <header>Signup</header>
-            <form action="Signup" method="post">
-            
-            <div class="field input-field">
-                    <label>
-                        <input type="text" placeholder="your name" name="username" class="input" required>
-                    </label>
-                </div>
-                
+            <form action="#">
                 <div class="field input-field">
                     <label>
-                        <input type="email" placeholder="Email" name="email" class="input" required>
+                        <input type="email" placeholder="Email" class="input" required>
                     </label>
                 </div>
 
                 <div class="field input-field">
                     <label>
-                        <input type="password" placeholder=" Password" name="password"  class="password" required>
+                        <input type="password" placeholder="Create password" class="password" required>
                     </label>
-                    <i class='bx bx-hide eye-icon'></i>
                 </div>
+
                 <div class="field input-field">
                     <label>
-                        <input type="password" placeholder="Confirm password" name="password" class="password" required>
+                        <input type="password" placeholder="Confirm password" class="password" required>
                     </label>
                     <i class='bx bx-hide eye-icon'></i>
                 </div>

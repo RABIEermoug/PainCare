@@ -33,8 +33,12 @@
     <link rel="stylesheet" href="css/menu_profile.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    	
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> cdd99875974cbacf8c47433f37ac1e095eab6fdd
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 </head>
@@ -62,25 +66,24 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-1">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="Home"><img src="assets/img/logo/logo-paincare.png" alt="" style="border-radius: 50%; width: 100px;"></a>
                             </div>
                         </div>
-                        <div class="col-xl-10 col-lg-10 col-md-10" style="font-size: 0;">
-                            <div class="menu-main d-flex align-items-center justify-content-end " >
+                        <div class="col-xl-10 col-lg-10 col-md-10 menu-main d-flex align-items-center justify-content-end" style="gap : 120px; font-size: 0;">
+                            <div class="menu-main d-flex align-items-center justify-content-center " >
                                 <!-- Main-menu -->
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav> 
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">Endometriosis</a>
-	                                             <ul class="submenu">
-	                                                    <li><a href="blog.html">Symptoms</a></li>
-	                                                    <li><a href="blog_details.html">Causes</a></li>
-	                                                    <li><a href="elements.html">Diagnosis</a></li>
-	                                                    <li><a href="blog_details.html">Infertility</a></li>
-	                                                    <li><a href="elements.html">Adhesions</a></li>
+                                            <li><a href="Home">Home</a></li>
+                                            <li><a href="#">Endometriosis</a>
+	                                             <ul class="submenu" >
+	                                                    <li><a href="symptoms.jsp">Symptoms</a></li>
+	                                                    <li><a href="causes.jsp">Causes</a></li>
+	                                                    <li><a href="diagnosis.jsp">Diagnosis</a></li>
+	                                                    <li><a href="Infertility.jsp">Infertility</a></li>
+	                                                    <li><a href="adhesions.jsp">Adhesions</a></li>
 	                                             </ul>
-	                                            
                                             </li>
                                             <li><a href="about.html">News</a></li>                                       
                                             <li><a href="blog.html">Services</a>
@@ -90,6 +93,7 @@
 	                                                    <li><a href="elements.html">Process</a></li>
 	                                              </ul>
                                             </li>
+<<<<<<< HEAD
                                              <li><a href="services.html">Community</a></li>
                                             <li><a href="contact.html">Contact</a></li>   
                                              <li>  
@@ -104,15 +108,60 @@
 														                  
                                             </li>
                                                                                   
+=======
+                                             <li><a href="AllBlogs">Community</a></li>
+                                            <li><a href="contact.jsp">Contact</a></li>   
+                                             <li>  
+												            <a><i class="bi bi-person-lines-fill"></i></a>   
+												            <ul class="submenu">
+			                                                    <li><a href="Profile"><i class="bi bi-person-circle"></i> edit-Profile</a></li>
+			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
+			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
+			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>
+			                                                    <li><a href="Logout"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
+			                                               </ul>	                  
+                                            </li>
+>>>>>>> cdd99875974cbacf8c47433f37ac1e095eab6fdd
                                         </ul>
                                     </nav>
                                 </div>
-                                <div class="header-right-btn f-right d-none d-lg-block ml-14">
-                                    <a href="#" class="btn header-btn">Start your test now !</a>
-                                </div>
+                                 </div>
+                                  	<div class="create justify-content-center">
+							            <div class="profile-pic">
+							                <img src="assets/img/logo/profile-8.jpg" alt="pic 1" />
+							            </div>
+							            <div class="handle">
+							              
+							                <p class=""><a href="profile"> ${user.name}</a></p>
+							            </div>
+							        </div>
                                 
-                                
-                            </div>
+                                <style>
+                                .create{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+    justify-content : center ;
+    gap: 1rem;
+    position : relative;
+    top: 10px;
+}
+                                 .profile-pic{
+    position: relative;
+    overflow: visible;
+}
+
+ .profile-pic img{    
+ 	width: 50px;
+    border-radius: 50%;
+}
+.handle p a{
+	color: black;
+}
+
+
+</style>
+                           
                         </div>   
                         <!-- Mobile Menu -->
                         <div class="col-12">
@@ -127,32 +176,105 @@
     
     <main>
         <!--? Slider Area Start-->
-        <div class="slider-area">
-            <div class="slider-active dot-style">
+         <div class="slider-area " style="min-height: 100vh;">
+            <div class="slider-active dot-style"  style="min-height: 100vh;">
             
                 <div class="single-slider d-flex align-items-center slider-height">
                     <div class="container">
                         <div class="row align-items-center">
-                            <div class="col-xl-7 col-lg-8 col-md-10 ">
-                             <div class="hero-wrapper">
-                                <!-- Video icon -->
-                                <div class="video-icon">
-                                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
-                                        <i class="fas fa-play"></i>
-                                    </a>
+                            <div style="display: flex; gap: 70PX; flex-direction: row; align-items: center; justify-content: space-between;" >
+                                <div style="gap: -90px; position: relative; top: -230px; " class="hero-wrapper">
+                                    <!-- Video icon -->
+                                    <div class="video-icon">
+                                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
+                                            <i class="fas fa-play"></i>
+                                        </a>
+                                    </div>
+                                    <div class="hero__caption" >
+                                        <h1 data-animation="fadeInUp" data-delay=".3s" style="font-size: 42px;">Health is wealth  keep it healthy </h1>
+                                        <p data-animation="fadeInUp" data-delay=".6s">Learn all about endometriosis </p>
+                                        <nav> 
+                                        <ul id="navigation">
+                                        <li>
+                                        <a href="services.html" class="btn" data-animation="fadeInLeft" data-delay=".3s">Check our services !</a>
+                                        <ul class="submenu" >
+	                                                    <li> <a href="#" class="btn header-btn">Start your test now !</a></li>
+	                                                    
+	                                             </ul>
+                                        </li>
+                                        </ul>
+                                        </nav>
+                                    </div>
                                 </div>
-                                <div class="hero__caption">
-                                    <h1 data-animation="fadeInUp" data-delay=".3s">Health is wealth  keep it healthy </h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s">Learn all about endometriosis </p>
-                                    <a href="services.html" class="btn" data-animation="fadeInLeft" data-delay=".3s">Check our services !</a>
+                                <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;  position: relative; top: -230px; 
+                                border: 2px solid #ff0057; border-radius: 8px; padding: 15px; right: 80px;" >
+                                    <div>
+                                        <div><h2>Dernier score</h2></div>
+                                        <div><p>Mettez à jour votre score régulièrement</p></div>
+                                    </div>
+                                        <!--ring div starts here-->
+                                    <div class="ring">
+                                        <i style="--clr:#00ff0a;"></i>
+                                        <i style="--clr:#ff0057;"></i>
+                                        <i style="--clr:#fffd44;"></i>
+                                        <h2 style="color: #ff0057;">Faible</h2>
+                                    </div>
+                                         <!--ring div ends here-->
+                                         <style>
+                                                        .ring {
+                                                        position: relative;
+                                                        width: 100px;
+                                                        height: 100px;
+                                                        display: flex;
+                                                        justify-content: center;
+                                                        align-items: center; 
+                                                        }
+                                                        .ring i {
+                                                        position: absolute;
+                                                        inset: 0;
+                                                        border: 2px solid #ff0057;
+                                                        transition: 0.5s;
+                                                        }
+                                                        .ring i:nth-child(1) {
+                                                        border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+                                                        animation: animate 6s linear infinite;
+                                                        }
+                                                        .ring i:nth-child(2) {
+                                                        border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+                                                        animation: animate 4s linear infinite;
+                                                        }
+                                                        .ring i:nth-child(3) {
+                                                        border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+                                                        animation: animate2 10s linear infinite;
+                                                        }
+                                                        .ring:hover i {
+                                                        border: 6px solid var(--clr);
+                                                        filter: drop-shadow(0 0 20px var(--clr));
+                                                        }
+                                                        @keyframes animate {
+                                                        0% {
+                                                            transform: rotate(0deg);
+                                                        }
+                                                        100% {
+                                                            transform: rotate(360deg);
+                                                        }
+                                                        }
+                                                        @keyframes animate2 {
+                                                        0% {
+                                                            transform: rotate(360deg);
+                                                        }
+                                                        100% {
+                                                            transform: rotate(0deg);
+                                                        }
+                                                        }
+                                         </style>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>        
-    </div>
-</div>
+                </div>        
+            </div>
+        </div>
 
 <!-- Slider Area End -->
 <!--? About-2 Area Start -->

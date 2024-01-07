@@ -1,5 +1,6 @@
 package paincare.entities;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class UserEntity {
@@ -14,6 +15,10 @@ public class UserEntity {
 
 	    private Timestamp dateTime;
 
+	    private Date birthday;
+	    
+		private byte[] image; // Content of the photo as bytes
+		
 		public int getIdUser() {
 			return idUser;
 		}
@@ -52,6 +57,22 @@ public class UserEntity {
 
 		public void setDateTime(Timestamp dateTime) {
 			this.dateTime = dateTime;
+		}
+
+		public Date getBirthday() {
+			return birthday;
+		}
+
+		public void setBirthday(Date birthday) {
+			this.birthday = birthday;
+		}
+
+		public byte[] getImage() {
+			return image;
+		}
+
+		public void setImage(byte[] image) {
+			this.image = image;
 		}
 	    
 	    
