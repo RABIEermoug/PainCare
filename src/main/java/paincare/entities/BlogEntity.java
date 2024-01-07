@@ -2,6 +2,7 @@ package paincare.entities;
 
 import java.sql.Timestamp;
 import java.util.Base64;
+import java.util.List;
 
 public class BlogEntity {
 
@@ -11,7 +12,8 @@ public class BlogEntity {
 	private String description;
 	private byte[] image; // Content of the photo as bytes
 	private Timestamp date;
-	
+	private String username;
+    private List<CommentaireEntity> commentaires; // Nouveau champ pour les commentaires
 	public int getId() {
 		return id;
 	}
@@ -49,7 +51,21 @@ public class BlogEntity {
 		this.date = date;
 	}
 	
-	 public String getBase64EncodedContent() {
+	
+	 public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	  public List<CommentaireEntity> getCommentaires() {
+	        return commentaires;
+	    }
+
+	    public void setCommentaires(List<CommentaireEntity> commentaires) {
+	        this.commentaires = commentaires;
+	    }
+	public String getBase64EncodedContent() {
 	        if (image != null) {
 	            return Base64.getEncoder().encodeToString(image);
 	        } else {

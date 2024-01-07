@@ -19,17 +19,17 @@ public class CommentaireDaoImp implements CommentaireDao {
 		        this.daoFactory = daoFactory;
 		    }
 		
-		    private static CommentaireEntity map(ResultSet resultSet) throws SQLException {
+		    public static CommentaireEntity map(ResultSet resultSet) throws SQLException {
 		        CommentaireEntity commentaire = new CommentaireEntity();
 		        commentaire.setId(resultSet.getInt("id"));
 		        commentaire.setUser_id(resultSet.getInt("user_id"));
 		        commentaire.setBlog_id(resultSet.getInt("blog_id"));
 		        commentaire.setContent(resultSet.getString("content"));
 		        commentaire.setDate(resultSet.getTimestamp("date"));
-
+				
 		        // Nouvelle propriété pour le nom de l'utilisateur
 		        commentaire.setUserName(resultSet.getString("user_name"));
-
+		     
 		        
 		        return commentaire;
 		    }
@@ -77,7 +77,7 @@ public class CommentaireDaoImp implements CommentaireDao {
 		        try {
 		            connection = daoFactory.getConnection();
 		            String sql = "SELECT c.*, u.name AS user_name FROM commentaire c " +
-		                         "JOIN user u ON c.user_id = u.id " +
+		                         "JOIN user u ON c.user_id = u.iduser " +
 		                         "WHERE blog_id=?";
 		            preparedStatement = initRequestPrepare(connection, sql, blogId);
 		            resultSet = preparedStatement.executeQuery();

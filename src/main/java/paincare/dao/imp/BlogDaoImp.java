@@ -11,6 +11,7 @@ import paincare.dao.BlogDao;
 import paincare.dao.DAOException;
 import paincare.dao.DAOFactory;
 import paincare.entities.BlogEntity;
+import paincare.entities.CommentaireEntity;
 
 public class BlogDaoImp implements BlogDao {
 	
@@ -23,13 +24,17 @@ public class BlogDaoImp implements BlogDao {
 	        BlogEntity blog = new BlogEntity();
 	        blog.setId(resultSet.getInt("id"));
 	        blog.setUser_id(resultSet.getInt("user_id"));
-	        blog.setTitle(resultSet.getString("titre"));
+	        blog.setTitle(resultSet.getString("title"));
 	        blog.setDescription(resultSet.getString("description"));
 	        blog.setImage(resultSet.getBytes("image"));    
-	        blog.setDate(resultSet.getTimestamp("timestamp"));
+	        blog.setDate(resultSet.getTimestamp("date"));
+	        // Ajouter le mapping pour le nom de l'utilisateur
+			 blog.setUsername(resultSet.getString("name"));
 
+		
 	        return blog;
 	    }
+	    
 	    public static PreparedStatement initRequestPrepare( Connection connexion, String sql, Object... objets ) throws SQLException {
 	        PreparedStatement preparedStatement = connexion.prepareStatement( sql );
 	        for ( int i = 0; i < objets.length; i++ ) {
@@ -75,12 +80,20 @@ public class BlogDaoImp implements BlogDao {
 
 		    try {
 		        connection = daoFactory.getConnection();
-		        String sql = "SELECT * FROM blog";
+		        String sql = "SELECT blog.*, user.name " +
+		                     "FROM blog " +
+		                     "JOIN user ON blog.user_id = user.iduser";
 		        preparedStatement = connection.prepareStatement(sql);
 		        resultSet = preparedStatement.executeQuery();
 
 		        while (resultSet.next()) {
-		            blogs.add(map(resultSet));
+		            BlogEntity blog = map(resultSet);
+
+		            // Ajouter le nom de l'utilisateur au blog
+		            String username = resultSet.getString("name");
+		            blog.setUsername(username);
+
+		            blogs.add(blog);
 		        }
 		    } catch (SQLException e) {
 		        throw new DAOException("Error retrieving blogs from the database", e);

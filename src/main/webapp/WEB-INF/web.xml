@@ -49,4 +49,24 @@
     <servlet-name>BlogServlet</servlet-name>
     <url-pattern>/addBlog</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AllBlogsServlet</display-name>
+    <servlet-name>AllBlogsServlet</servlet-name>
+    <servlet-class>paincare.servlets.Blog.AllBlogsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllBlogsServlet</servlet-name>
+    <url-pattern>/AllBlogs</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCommentaireServlet</display-name>
+    <servlet-name>AddCommentaireServlet</servlet-name>
+    <servlet-class>paincare.servlets.Blog.AddCommentaireServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCommentaireServlet</servlet-name>
+    <url-pattern>/AddCommentaire</url-pattern>
+  </servlet-mapping>
 </web-app>

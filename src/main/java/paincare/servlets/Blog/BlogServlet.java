@@ -20,7 +20,7 @@ import java.io.InputStream;
 /**
  * Servlet implementation class BlogServlet
  */
-@MultipartConfig(maxFileSize = 16177215) // Taille maximale de la photo (en octets)
+@MultipartConfig(maxFileSize = 1617721500) // Taille maximale de la photo (en octets)
 
 public class BlogServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -82,14 +82,15 @@ public class BlogServlet extends HttpServlet {
 			            blogDao.create(newBlog);
 			            System.out.println("bien faite goooooooooooooooooooooooooood");
 			            // Rediriger vers une page de confirmation ou autre
-			            response.sendRedirect("confirmation.jsp");
+			            response.sendRedirect("http://localhost:8080/PainCare/AllBlogs");
 			
 			        } catch (Exception e) {
 			            // Gérer les erreurs
 			            e.printStackTrace();
 			            System.out.println("rencontre un problemé dans l'enregitrement  nooooooooooooooooooooooooooooooooooooooo");
+			            System.out.println("taille de l'image   nooooooooooooooooooooooooooooooooooooooo");
 
-			            response.sendRedirect("error.jsp");
+			            response.sendRedirect("addBlog.jsp");
 			        }
 				}
 

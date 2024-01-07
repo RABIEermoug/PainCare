@@ -56,7 +56,7 @@ public class Login extends HttpServlet {
 	            userEntity = userDAO.isValidUser(email, password);
 	        } catch (SQLException e) {
 
-	            e.printStackTrace();
+	            e.printStackTrace(); 
 	        }
 	        if(userEntity != null){
 
