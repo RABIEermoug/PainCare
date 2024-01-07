@@ -59,7 +59,7 @@ public class BlogServlet extends HttpServlet {
 						HttpSession session = request.getSession();
 						
 						UserEntity sessionUser = (UserEntity) session.getAttribute("sessionuser");
-						System.out.println(sessionUser.getIdUser());
+					
 			            // Récupérer les paramètres du formulaire
 			            String title = request.getParameter("title");
 			            String description = request.getParameter("description");

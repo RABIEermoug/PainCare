@@ -69,4 +69,44 @@
     <servlet-name>AddCommentaireServlet</servlet-name>
     <url-pattern>/AddCommentaire</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SuiviServlet</display-name>
+    <servlet-name>SuiviServlet</servlet-name>
+    <servlet-class>paincare.servlets.suivi.SuiviServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SuiviServlet</servlet-name>
+    <url-pattern>/Suivi</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>paincare.servlets.user.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditUserServlet</display-name>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class>paincare.servlets.user.EditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserServlet</servlet-name>
+    <url-pattern>/EditUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditImageServlet</display-name>
+    <servlet-name>EditImageServlet</servlet-name>
+    <servlet-class>paincare.servlets.user.EditImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditImageServlet</servlet-name>
+    <url-pattern>/EditImage</url-pattern>
+  </servlet-mapping>
 </web-app>

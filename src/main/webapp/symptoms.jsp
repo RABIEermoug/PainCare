@@ -21,6 +21,10 @@
 	<link rel="stylesheet" href="assets/css/slick.css">
 	<link rel="stylesheet" href="assets/css/nice-select.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 	<!--? Preloader Start -->
@@ -35,53 +39,105 @@
 		</div>
 	</div>
 	<!-- Preloader Start -->
-	<header>
-		<!--? Header Start -->
-		<div class="header-area">
-			<div class="main-header header-sticky">
-				<div class="container-fluid">
-					<div class="row align-items-center">
-						<!-- Logo -->
-						<div class="col-xl-2 col-lg-2 col-md-1">
-							<div class="logo">
-								<a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
-							</div>
-						</div>
-						<div class="col-xl-10 col-lg-10 col-md-10">
-							<div class="menu-main d-flex align-items-center justify-content-end">
-								<!-- Main-menu -->
-								<div class="main-menu f-right d-none d-lg-block">
-									<nav> 
-										<ul id="navigation">
-											<li><a href="index.html">Home</a></li>
-											<li><a href="about.html">About</a></li>
-											<li><a href="services.html">Services</a></li>
-											<li><a href="blog.html">Blog</a>
-												<ul class="submenu">
-													<li><a href="blog.html">Blog</a></li>
-													<li><a href="blog_details.html">Blog Details</a></li>
-													<li><a href="elements.html">Element</a></li>
-												</ul>
-											</li>
-											<li><a href="contact.html">Contact</a></li>
-										</ul>
-									</nav>
-								</div>
-								<div class="header-right-btn f-right d-none d-lg-block ml-15">
-									<a href="#" class="btn header-btn">Make an Appointment</a>
-								</div>
-							</div>
-						</div>   
-						<!-- Mobile Menu -->
-						<div class="col-12">
-							<div class="mobile_menu d-block d-lg-none"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Header End -->
-	</header>
+<header>
+        <!--? Header Start -->
+        <div class="header-area">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="Home"><img src="assets/img/logo/logo-paincare.png" alt="" style="border-radius: 50%; width: 100px;"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10 menu-main d-flex align-items-center justify-content-end" style="gap : 120px; font-size: 0;">
+                            <div class="menu-main d-flex align-items-center justify-content-center " >
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">
+                                            <li><a href="Home">Home</a></li>
+                                            <li><a href="#">Endometriosis</a>
+	                                             <ul class="submenu" >
+	                                                    <li><a href="symptoms.jsp">Symptoms</a></li>
+	                                                    <li><a href="causes.jsp">Causes</a></li>
+	                                                    <li><a href="diagnosis.jsp">Diagnosis</a></li>
+	                                                    <li><a href="Infertility.jsp">Infertility</a></li>
+	                                                    <li><a href="adhesions.jsp">Adhesions</a></li>
+	                                             </ul>
+                                            </li>
+                                            <li><a href="about.html">News</a></li>                                       
+                                            <li><a href="blog.html">Services</a>
+	                                              <ul class="submenu">
+	                                                    <li><a href="blog.html">Test</a></li>
+	                                                    <li><a href="blog_details.html">Evolution of pain</a></li>
+	                                                    <li><a href="elements.html">Process</a></li>
+	                                              </ul>
+                                            </li>
+                                             <li><a href="AllBlogs">Community</a></li>
+                                            <li><a href="contact.jsp">Contact</a></li>   
+                                             <li>  
+												            <a><i class="bi bi-person-lines-fill"></i></a>   
+												            <ul class="submenu">
+			                                                    <li><a href=""><i class="bi bi-person-circle"></i> edit-Profile</a></li>
+			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
+			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
+			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>
+			                                                    <li><a href="Logout"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
+			                                               </ul>	                  
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                 </div>
+                                  	<div class="create justify-content-center">
+							            <div class="profile-pic">
+							                <img src="assets/img/logo/profile-8.jpg" alt="pic 1" />
+							            </div>
+							            <div class="handle">
+							              
+							                <p class=""><a href="profile"> ${user.name}</a></p>
+							            </div>
+							        </div>
+                                
+                                <style>
+                                .create{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+    justify-content : center ;
+    gap: 1rem;
+    position : relative;
+    top: 10px;
+}
+                                 .profile-pic{
+    position: relative;
+    overflow: visible;
+}
+
+ .profile-pic img{    
+ 	width: 50px;
+    border-radius: 50%;
+}
+.handle p a{
+	color: black;
+}
+
+
+</style>
+                           
+                        </div>   
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
 	<main>
 		<!--? Slider Area Start-->
 		<div class="slider-area slider-area2">

@@ -1,25 +1,25 @@
-package paincare.servlets;
+package paincare.servlets.user;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import paincare.entities.UserEntity;
 
 import java.io.IOException;
 
 /**
- * Servlet implementation class HomeServlet
+ * Servlet implementation class LogoutServlet
  */
-public class HomeServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,13 +29,12 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		
-		UserEntity sessionUser = (UserEntity) session.getAttribute("sessionuser");
-		System.out.println(sessionUser.getIdUser());
-		
-		request.setAttribute("user", sessionUser);
-		request.getRequestDispatcher("/home.jsp").forward(request, response);
+		 HttpSession session = request.getSession(false);
+	        if (session != null) {
+	            session.removeAttribute("sessionuser");
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("Login");
+	            dispatcher.forward(request, response);
+	        }
 	}
 
 	/**

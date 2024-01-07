@@ -10,6 +10,7 @@ public interface UserDao {
     UserEntity getUserById(int userId);
     ArrayList<UserEntity> getAllUsers();
     void updateUser(UserEntity user);
+    void updateImageUser(UserEntity user);
     void deleteUser(Long userId);
     UserEntity isValidUser(String email, String password) throws SQLException;
     public boolean isExist(String email) throws SQLException;

@@ -28,6 +28,9 @@ public class UserDaoImp implements UserDao {
 	        userEntity.setEmail(resultSet.getString("email"));
 	        userEntity.setPassword(resultSet.getString("password"));
 	        userEntity.setDateTime(resultSet.getTimestamp("date_time"));
+	        userEntity.setBirthday(resultSet.getDate("birthday"));
+	        userEntity.setImage(resultSet.getBytes("image")); 
+
 	        //System.out.println(userEntity);
 	        return userEntity;
 	    }
@@ -105,14 +108,13 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 			        connection = daoFactory.getConnection();
 
 			        // Requête SQL de mise à jour
-			        String sql = "UPDATE user SET name=?, email=?, password=?, date_time=? WHERE user_id=?";
+			        String sql = "UPDATE user SET name=?, email=?, birthday=? WHERE iduser=?";
 
 			        // Préparer la requête avec les valeurs de l'utilisateur
 			        preparedStatement = connection.prepareStatement(sql);
 			        preparedStatement.setString(1, user.getName());
 			        preparedStatement.setString(2, user.getEmail());
-			        preparedStatement.setString(3, user.getPassword());
-			        preparedStatement.setTimestamp(4, user.getDateTime());
+			        preparedStatement.setDate(3, user.getBirthday());
 			        preparedStatement.setLong(5, user.getIdUser()); // Assurez-vous d'avoir un identifiant utilisateur pour savoir quel utilisateur mettre à jour
 
 			        // Exécuter la requête de mise à jour
@@ -126,7 +128,33 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 			    }
 		}
 		
-	    private static final String SQL_DELETE_USER = "DELETE FROM user WHERE iduser = ?";
+	    @Override
+		public void updateImageUser(UserEntity user) {
+			// TODO Auto-generated method stub
+			// TODO Auto-generated method stub
+			 Connection connection = null;
+		        PreparedStatement preparedStatement = null;
+
+		        try {
+		            connection = daoFactory.getConnection();
+		            String sql = "UPDATE user SET image=? WHERE iduser=?";
+		            preparedStatement = connection.prepareStatement(sql);
+
+
+		            preparedStatement.setBytes(1, user.getImage());
+		            preparedStatement.setInt(2, user.getIdUser());
+		            
+		            preparedStatement.executeUpdate();
+		        } catch (SQLException e) {
+		            throw new DAOException("Error adding data to the database", e);
+		        } finally {
+		            ResultSet resultSet = null;
+		            closeResources(preparedStatement, connection);
+		        }
+			
+		}
+
+		private static final String SQL_DELETE_USER = "DELETE FROM user WHERE iduser = ?";
 		@Override
 		public void deleteUser(Long userId) {
 			// TODO Auto-generated method stub
