@@ -85,10 +85,32 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 	            e.printStackTrace(); // Gérer les exceptions liées à la fermeture des ressources
 	        }
 	    }
+		
+	    private static final String SQL_SELECT_PAR_ID = "SELECT * FROM user where iduser = ? ";
 		@Override
 		public UserEntity getUserById(int userId) {
 			// TODO Auto-generated method stub
-			return null;
+
+	        Connection connexion = null;
+	        PreparedStatement preparedStatement = null;
+	        ResultSet resultSet = null;
+	        UserEntity user = null;
+
+	        try {
+	            /* Récupération d'une connexion depuis la Factory */
+	            connexion = daoFactory.getConnection();
+	            preparedStatement = initRequestPrepare( connexion, SQL_SELECT_PAR_ID , userId);
+	            resultSet = preparedStatement.executeQuery();
+	            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+	            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+	            if (resultSet.next()) {
+	                user = map(resultSet);
+	                System.out.println(resultSet.getString("name"));
+	            }
+	        } catch ( SQLException e ) {
+	            throw new DAOException( e );
+	        }
+	        return user;
 		}
 
 		@Override
@@ -115,11 +137,12 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 			        preparedStatement.setString(1, user.getName());
 			        preparedStatement.setString(2, user.getEmail());
 			        preparedStatement.setDate(3, user.getBirthday());
-			        preparedStatement.setLong(5, user.getIdUser()); // Assurez-vous d'avoir un identifiant utilisateur pour savoir quel utilisateur mettre à jour
+			        preparedStatement.setLong(4, user.getIdUser()); // Assurez-vous d'avoir un identifiant utilisateur pour savoir quel utilisateur mettre à jour
 
 			        // Exécuter la requête de mise à jour
 			        preparedStatement.executeUpdate();
 			    } catch (SQLException e) {
+
 			        // Gérer les exceptions liées à la base de données
 			        e.printStackTrace(); // Vous pouvez remplacer cela par une gestion plus appropriée des exceptions
 			    } finally {
@@ -154,24 +177,37 @@ System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 			
 		}
 
-		private static final String SQL_DELETE_USER = "DELETE FROM user WHERE iduser = ?";
+	
 		@Override
 		public void deleteUser(Long userId) {
-			// TODO Auto-generated method stub
-			  Connection connection = null;
+			 Connection connection = null;
 		        PreparedStatement preparedStatement = null;
 
 		        try {
 		            connection = daoFactory.getConnection();
-		            preparedStatement = connection.prepareStatement(SQL_DELETE_USER);
-		            preparedStatement.setLong(1, userId);
 
+		            // Supprimer tous les commentaires de l'utilisateur
+		            String deleteCommentsSQL = "DELETE FROM commentaire WHERE user_id  = ?)";
+		            preparedStatement = initRequestPrepare(connection, deleteCommentsSQL, userId);
 		            preparedStatement.executeUpdate();
+
+		            // Supprimer tous les blogs de l'utilisateur
+		            String deleteBlogsSQL = "DELETE FROM blog WHERE user_id = ?";
+		            preparedStatement = initRequestPrepare(connection, deleteBlogsSQL, userId);
+		            preparedStatement.executeUpdate();
+
+		            // Supprimer l'utilisateur
+		            String deleteUserSQL = "DELETE FROM user WHERE iduser = ?";
+		            preparedStatement = initRequestPrepare(connection, deleteUserSQL, userId);
+		            preparedStatement.executeUpdate();
+
 		        } catch (SQLException e) {
-		            throw new DAOException("Error deleting user with ID: " + userId, e);
+		            throw new DAOException("Error deleting user and associated data from the database", e);
 		        } finally {
-		            closeResources(preparedStatement, connection);
+		            closeResources( preparedStatement, connection);
 		        }
+		    
+
 		}
 
 		@Override

@@ -109,4 +109,14 @@
     <servlet-name>EditImageServlet</servlet-name>
     <url-pattern>/EditImage</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileServlet</display-name>
+    <servlet-name>ProfileServlet</servlet-name>
+    <servlet-class>paincare.servlets.user.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileServlet</servlet-name>
+    <url-pattern>/Profile</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -166,8 +166,9 @@
 <div class="container-xl px-4 mt-4">
 
 <nav class="nav nav-borders">
-<a class="nav-link active ms-0" href="" target="__blank" style="color:crimson;">Profile</a>
-
+<form action="">
+<button class="btn btn-primary" type="submit" style="background:crimson; border:crimson;"> Supprimer le compte </button>
+</form>
 </nav>
 <hr class="mt-0 mb-4">
 <div class="row">

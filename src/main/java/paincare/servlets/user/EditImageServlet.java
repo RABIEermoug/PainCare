@@ -68,17 +68,17 @@ public class EditImageServlet extends HttpServlet {
             newImage.setIdUser(sessionUser.getIdUser());
             
             userDao.updateImageUser(newImage);	
-            System.out.println("gnooooooooooooooooooooooooooooooooooooooo");
+            System.out.println("gooooooooooooooooooooooooooooooooooooooo");
             
             
             // Rediriger vers une page de confirmation ou autre
-            response.sendRedirect("http://localhost:8080/PainCare/EditUser");
+            response.sendRedirect("http://localhost:8080/PainCare/Profile");
 		  } catch (Exception e) {
 	            // Gérer les erreurs
 	            e.printStackTrace();
 	            System.out.println("taille de l'image   nooooooooooooooooooooooooooooooooooooooo");
 
-	            response.sendRedirect("http://localhost:8080/PainCare/EditUser");
+	            response.sendRedirect("http://localhost:8080/PainCare/Profile");
 	        }
 	}
 

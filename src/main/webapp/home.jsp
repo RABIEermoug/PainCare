@@ -94,7 +94,7 @@
                                              <li>  
 												            <a><i class="bi bi-person-lines-fill"></i></a>   
 												            <ul class="submenu">
-			                                                    <li><a href="EditUser"><i class="bi bi-person-circle"></i> edit-Profile</a></li>
+			                                                    <li><a href="Profile"><i class="bi bi-person-circle"></i> edit-Profile</a></li>
 			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
 			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
 			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>

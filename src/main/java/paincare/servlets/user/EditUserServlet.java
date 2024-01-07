@@ -43,12 +43,7 @@ public class EditUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	HttpSession session = request.getSession();
-		
-		UserEntity sessionUser = (UserEntity) session.getAttribute("sessionuser");
 
-		request.setAttribute("user", sessionUser);
-		request.getRequestDispatcher("/profile.jsp").forward(request, response);
 	}
 
 	/**
@@ -72,35 +67,19 @@ public class EditUserServlet extends HttpServlet {
             newInfo.setEmail(email);
             newInfo.setBirthday(Date.valueOf(birthday));
             newInfo.setIdUser(sessionUser.getIdUser());
-            // Ajouter l'utilisateur à la base de données
-            UserDao userDAO = new UserDaoImp(DAOFactory.getInstance());  // Remplacez DAOFactory.getInstance() par votre méthode pour obtenir une instance de DAOFactory
-            try {
-                boolean isExist = userDAO.isExist(email);
-                if (isExist) {
-                    String message = "Cet email est déjà utilisé.Essayer un autre";
-                    request.setAttribute("message", message);
-                    this.getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+       
+             userDao.updateUser(newInfo);	
 
-                } else {
-                	userDao.updateUser(newInfo);	
-                    this.getServletContext().getRequestDispatcher("/Home").forward(request, response);
-                }
-            } catch (Exception e) {
-
-                e.printStackTrace();
-            }
-            
             System.out.println("gnooooooooooooooooooooooooooooooooooooooo");
-            
-            
+
             // Rediriger vers une page de confirmation ou autre
-            response.sendRedirect("http://localhost:8080/PainCare/EditUser");
+            response.sendRedirect("http://localhost:8080/PainCare/Profile");
 		  } catch (Exception e) {
 	            // Gérer les erreurs
 	            e.printStackTrace();
 	            System.out.println("taille de l'image   nooooooooooooooooooooooooooooooooooooooo");
 
-	            response.sendRedirect("http://localhost:8080/PainCare/EditUser");
+	            response.sendRedirect("http://localhost:8080/PainCare/Profile");
 	        }
 		}
 
