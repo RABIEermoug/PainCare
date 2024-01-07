@@ -71,7 +71,7 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav> 
                                         <ul id="navigation">
-                                            <li><a href="Home">Home</a></li>
+                                            <li><a href="index.html">Home</a></li>
                                             <li><a href="about.html">Endometriosis</a>
 	                                             <ul class="submenu">
 	                                                    <li><a href="blog.html">Symptoms</a></li>
@@ -108,7 +108,7 @@
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block ml-14">
-                                    <a href="addBlog.jsp" class="btn header-btn">Start your test now !</a>
+                                    <a href="#" class="btn header-btn">Start your test now !</a>
                                 </div>
                                 
                                 
@@ -126,96 +126,33 @@
     </header>
     
     <main>
- <!--? Slider Area Start-->
-        <div class="slider-area " style="min-height: 100vh;">
-            <div class="slider-active dot-style"  style="min-height: 100vh;">
+        <!--? Slider Area Start-->
+        <div class="slider-area" style="">
+            <div class="slider-active dot-style">
             
                 <div class="single-slider d-flex align-items-center slider-height">
                     <div class="container">
                         <div class="row align-items-center">
-                            <div style="display: flex; gap: 70PX; flex-direction: row; align-items: center; justify-content: space-between;" >
-                                <div style="gap: -90px; position: relative; top: -230px; " class="hero-wrapper">
-                                    <!-- Video icon -->
-                                    <div class="video-icon">
-                                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
-                                            <i class="fas fa-play"></i>
-                                        </a>
-                                    </div>
-                                    <div class="hero__caption" >
-                                        <h1 data-animation="fadeInUp" data-delay=".3s" style="font-size: 42px;">Health is wealth  keep it healthy </h1>
-                                        <p data-animation="fadeInUp" data-delay=".6s">Learn all about endometriosis </p>
-                                        <a href="services.html" class="btn" data-animation="fadeInLeft" data-delay=".3s">Check our services !</a>
-                                    </div>
+                            <div class="col-xl-7 col-lg-8 col-md-10 ">
+                             <div class="hero-wrapper">
+                                <!-- Video icon -->
+                                <div class="video-icon">
+                                    <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0" data-animation="bounceIn" data-delay=".4s">
+                                        <i class="fas fa-play"></i>
+                                    </a>
                                 </div>
-                                <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;  position: relative; top: -230px; 
-                                border: 2px solid #ff0057; border-radius: 8px; padding: 15px; right: 80px;" >
-                                    <div>
-                                        <div><h2>Dernier score</h2></div>
-                                        <div><p>Mettez à jour votre score régulièrement</p></div>
-                                    </div>
-                                        <!--ring div starts here-->
-                                    <div class="ring">
-                                        <i style="--clr:#00ff0a;"></i>
-                                        <i style="--clr:#ff0057;"></i>
-                                        <i style="--clr:#fffd44;"></i>
-                                        <h2 style="color: #ff0057;">Faible</h2>
-                                    </div>
-                                         <!--ring div ends here-->
-                                         <style>
-                                                        .ring {
-                                                        position: relative;
-                                                        width: 100px;
-                                                        height: 100px;
-                                                        display: flex;
-                                                        justify-content: center;
-                                                        align-items: center;
-                                                        }
-                                                        .ring i {
-                                                        position: absolute;
-                                                        inset: 0;
-                                                        border: 2px solid #ff0057;
-                                                        transition: 0.5s;
-                                                        }
-                                                        .ring i:nth-child(1) {
-                                                        border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-                                                        animation: animate 6s linear infinite;
-                                                        }
-                                                        .ring i:nth-child(2) {
-                                                        border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
-                                                        animation: animate 4s linear infinite;
-                                                        }
-                                                        .ring i:nth-child(3) {
-                                                        border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
-                                                        animation: animate2 10s linear infinite;
-                                                        }
-                                                        .ring:hover i {
-                                                        border: 6px solid var(--clr);
-                                                        filter: drop-shadow(0 0 20px var(--clr));
-                                                        }
-                                                        @keyframes animate {
-                                                        0% {
-                                                            transform: rotate(0deg);
-                                                        }
-                                                        100% {
-                                                            transform: rotate(360deg);
-                                                        }
-                                                        }
-                                                        @keyframes animate2 {
-                                                        0% {
-                                                            transform: rotate(360deg);
-                                                        }
-                                                        100% {
-                                                            transform: rotate(0deg);
-                                                        }
-                                                        }
-                                         </style>
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInUp" data-delay=".3s">Health is wealth  keep it healthy </h1>
+                                    <p data-animation="fadeInUp" data-delay=".6s">Learn all about endometriosis </p>
+                                    <a href="services.html" class="btn" data-animation="fadeInLeft" data-delay=".3s">Check our services !</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>        
-            </div>
-        </div>
+                </div>
+            </div>        
+		    </div>
+		</div>
 
 <!-- Slider Area End -->
 <!--? About-2 Area Start -->
