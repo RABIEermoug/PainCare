@@ -39,7 +39,8 @@
 		</div>
 	</div>
 	<!-- Preloader Start -->
-<header>
+   <!-- Preloader Start -->
+    <header>
         <!--? Header Start -->
         <div class="header-area">
             <div class="main-header header-sticky">
@@ -67,27 +68,27 @@
 	                                                    <li><a href="adhesions.jsp">Adhesions</a></li>
 	                                             </ul>
                                             </li>
-                                            <li><a href="about.html">News</a></li>                                       
-                                            <li><a href="blog.html">Services</a>
+                                            <li><a href="article.jsp">News</a></li>                                       
+                                            <li><a href="#">Services</a>
 	                                              <ul class="submenu">
-	                                                    <li><a href="blog.html">Test</a></li>
-	                                                    <li><a href="blog_details.html">Evolution of pain</a></li>
-	                                                    <li><a href="elements.html">Process</a></li>
+	                                                    <li><a href="test_endo.jsp">Test</a></li>
+	                                                    <li><a href="evolution.jsp">Evolution of pain</a></li>
+	                                                    <li><a href="suivi.jsp">Process</a></li>
 	                                              </ul>
                                             </li>
-                                             <li><a href="AllBlogs">Community</a></li>
+						           <li><a href="AllBlogs">Community</a></li>
                                             <li><a href="contact.jsp">Contact</a></li>   
                                              <li>  
 												            <a><i class="bi bi-person-lines-fill"></i></a>   
 												            <ul class="submenu">
-			                                                    <li><a href=""><i class="bi bi-person-circle"></i> edit-Profile</a></li>
+			                                                    <li><a href="Profile"><i class="bi bi-person-circle"></i> edit-Profile</a></li>
 			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
 			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
 			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>
 			                                                    <li><a href="Logout"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
 			                                               </ul>	                  
                                             </li>
-                                        </ul>
+                                   </ul>
                                     </nav>
                                 </div>
                                  </div>
@@ -138,6 +139,7 @@
         </div>
         <!-- Header End -->
     </header>
+    
 	<main>
 		<!--? Slider Area Start-->
 		<div class="slider-area slider-area2">

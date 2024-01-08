@@ -35,10 +35,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     	
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> cdd99875974cbacf8c47433f37ac1e095eab6fdd
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 </head>
@@ -85,31 +82,15 @@
 	                                                    <li><a href="adhesions.jsp">Adhesions</a></li>
 	                                             </ul>
                                             </li>
-                                            <li><a href="about.html">News</a></li>                                       
-                                            <li><a href="blog.html">Services</a>
+                                            <li><a href="article.jsp">News</a></li>                                       
+                                            <li><a href="#">Services</a>
 	                                              <ul class="submenu">
-	                                                    <li><a href="blog.html">Test</a></li>
-	                                                    <li><a href="blog_details.html">Evolution of pain</a></li>
-	                                                    <li><a href="elements.html">Process</a></li>
+	                                                    <li><a href="test_endo.jsp">Test</a></li>
+	                                                    <li><a href="evolution.jsp">Evolution of pain</a></li>
+	                                                    <li><a href="suivi.jsp">Process</a></li>
 	                                              </ul>
                                             </li>
-<<<<<<< HEAD
-                                             <li><a href="services.html">Community</a></li>
-                                            <li><a href="contact.html">Contact</a></li>   
-                                             <li>  
-												            <a><i class="bi bi-person-lines-fill"></i></a>   
-												            <ul class="submenu">
-			                                                    <li><a href=""><i class="bi bi-person-circle"></i> Profile</a></li>
-			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
-			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
-			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>
-			                                                    <li><a href=""><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
-			                                               </ul>
-														                  
-                                            </li>
-                                                                                  
-=======
-                                             <li><a href="AllBlogs">Community</a></li>
+						           <li><a href="AllBlogs">Community</a></li>
                                             <li><a href="contact.jsp">Contact</a></li>   
                                              <li>  
 												            <a><i class="bi bi-person-lines-fill"></i></a>   
@@ -121,8 +102,7 @@
 			                                                    <li><a href="Logout"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
 			                                               </ul>	                  
                                             </li>
->>>>>>> cdd99875974cbacf8c47433f37ac1e095eab6fdd
-                                        </ul>
+                                   </ul>
                                     </nav>
                                 </div>
                                  </div>
@@ -132,7 +112,7 @@
 							            </div>
 							            <div class="handle">
 							              
-							                <p class=""><a href="profile"> ${user.name}</a></p>
+							                <p class=""><a href="Profile"> ${user.name}</a></p>
 							            </div>
 							        </div>
                                 
@@ -196,9 +176,8 @@
                                         <nav> 
                                         <ul id="navigation">
                                         <li>
-                                        <a href="services.html" class="btn" data-animation="fadeInLeft" data-delay=".3s">Check our services !</a>
-                                        <ul class="submenu" >
-	                                                    <li> <a href="#" class="btn header-btn">Start your test now !</a></li>
+                                             <ul class="submenu" >
+	                                                    <li> <a href="test_endo.jsp" class="btn header-btn">Start your test now !</a></li>
 	                                                    
 	                                             </ul>
                                         </li>

@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import paincare.dao.BlogDao;
 import paincare.dao.CommentaireDao;
 import paincare.dao.imp.CommentaireDaoImp;
@@ -14,6 +15,7 @@ import paincare.dao.DAOFactory;
 import paincare.dao.imp.BlogDaoImp;
 import paincare.entities.BlogEntity;
 import paincare.entities.CommentaireEntity;
+import paincare.entities.UserEntity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,7 +65,12 @@ public class AllBlogsServlet extends HttpServlet {
 	        request.setAttribute("blogs", blogs);
 	        request.setAttribute("commentaires", allCommentaires);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("allBlogs.jsp");
+	        HttpSession session = request.getSession();
+			
+			UserEntity sessionUser = (UserEntity) session.getAttribute("sessionuser");
+			
+			request.setAttribute("user", sessionUser);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("community.jsp");
             dispatcher.forward(request, response);
         } catch (DAOException e) {
             e.printStackTrace();

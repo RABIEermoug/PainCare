@@ -42,7 +42,8 @@
 
  <!-- ? Preloader Start -->
    
-    <!-- Preloader Start -->
+      <!-- Preloader Start -->
+      <!-- Preloader Start -->
     <header>
         <!--? Header Start -->
         <div class="header-area">
@@ -71,27 +72,27 @@
 	                                                    <li><a href="adhesions.jsp">Adhesions</a></li>
 	                                             </ul>
                                             </li>
-                                            <li><a href="about.html">News</a></li>                                       
-                                            <li><a href="blog.html">Services</a>
+                                            <li><a href="article.jsp">News</a></li>                                       
+                                            <li><a href="#">Services</a>
 	                                              <ul class="submenu">
-	                                                    <li><a href="blog.html">Test</a></li>
-	                                                    <li><a href="blog_details.html">Evolution of pain</a></li>
-	                                                    <li><a href="elements.html">Process</a></li>
+	                                                    <li><a href="test_endo.jsp">Test</a></li>
+	                                                    <li><a href="evolution.jsp">Evolution of pain</a></li>
+	                                                    <li><a href="suivi.jsp">Process</a></li>
 	                                              </ul>
                                             </li>
-                                             <li><a href="AllBlogs">Community</a></li>
+						           <li><a href="AllBlogs">Community</a></li>
                                             <li><a href="contact.jsp">Contact</a></li>   
                                              <li>  
 												            <a><i class="bi bi-person-lines-fill"></i></a>   
 												            <ul class="submenu">
-			                                                    <li><a href=""><i class="bi bi-person-circle"></i> edit-Profile</a></li>
+			                                                    <li><a href="Profile"><i class="bi bi-person-circle"></i> edit-Profile</a></li>
 			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
 			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
 			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>
 			                                                    <li><a href="Logout"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
 			                                               </ul>	                  
                                             </li>
-                                        </ul>
+                                   </ul>
                                     </nav>
                                 </div>
                                  </div>
@@ -101,7 +102,7 @@
 							            </div>
 							            <div class="handle">
 							              
-							                <p class=""><a href="profile"> ${user.name}</a></p>
+							                <p class=""><a href="Profile"> ${user.name}</a></p>
 							            </div>
 							        </div>
                                 
@@ -140,9 +141,12 @@
                 </div>
             </div>
         </div>
-     
         <!-- Header End -->
     </header>
+    
+    
+    
+    
 	<!--? Slider Area Start-->
 		<div class="slider-area slider-area2">
 			<div class="slider-active dot-style">
@@ -166,8 +170,8 @@
 <div class="container-xl px-4 mt-4">
 
 <nav class="nav nav-borders">
-<form action="">
-<button class="btn btn-primary" type="submit" style="background:crimson; border:crimson;"> Supprimer le compte </button>
+<form action="" method="post">
+<button class="btn btn-primary" type="submit" style="background:crimson; border:crimson;" onclick="return confirm('Voulez-vous vraiment supprimer ce compte ?')"> Supprimer le compte </button>
 </form>
 </nav>
 <hr class="mt-0 mb-4">

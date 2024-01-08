@@ -5,7 +5,7 @@ body {
   background: #cceffc;
 }
 #live-poll-area {
-  overflow: auto;
+    overflow: auto;
 	width: 100%;
 	max-width: 244px;
 	margin: 0 auto;
@@ -16,7 +16,7 @@ body {
 .graph-container .graph {
   width: 110px;
   margin: 0 auto 25px auto;
-}
+} 
 .graph-container .graph canvas {
   max-width: 110px;
   height: auto;
@@ -79,7 +79,14 @@ body {
   background-color: #8b1851;
   box-shadow: 0 2px 0 #53002c;
 }
-
+.bar-chart .answer-4 .bar {
+  background-color: blue;
+  box-shadow: 0 2px 0 midnightblue;
+}
+.bar-chart .answer-5 .bar {
+  background-color: mediumpurple;
+  box-shadow: 0 2px 0 purple;
+}
 @media only screen and (min-width: 600px) {
 	#live-poll-area {
 		max-width: 384px;
@@ -93,16 +100,6 @@ body {
     min-width: 244px;
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 .highcharts-series .highcharts-area {

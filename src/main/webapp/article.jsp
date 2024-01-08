@@ -45,6 +45,7 @@
         </div>
     </div>
     <!-- Preloader Start -->
+       <!-- Preloader Start -->
     <header>
         <!--? Header Start -->
         <div class="header-area">
@@ -54,38 +55,85 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-1">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="Home"><img src="assets/img/logo/logo-paincare.png" alt="" style="border-radius: 50%; width: 100px;"></a>
                             </div>
                         </div>
-                        <div class="col-xl-10 col-lg-10 col-md-10">
-                            <div class="menu-main d-flex align-items-center justify-content-end">
+                        <div class="col-xl-10 col-lg-10 col-md-10 menu-main d-flex align-items-center justify-content-end" style="gap : 120px; font-size: 0;">
+                            <div class="menu-main d-flex align-items-center justify-content-center " >
                                 <!-- Main-menu -->
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav> 
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About </a></li>
-                                            <li><a href="about.html">Articles</a></li>                                       
-                                            <li><a href="blog.html">Services</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Test</a></li>
-                                                    <li><a href="blog_details.html">Evaluation</a></li>
-                                                    <li><a href="elements.html">Process</a></li>
-                                                </ul>
+                                            <li><a href="Home">Home</a></li>
+                                            <li><a href="#">Endometriosis</a>
+	                                             <ul class="submenu" >
+	                                                    <li><a href="symptoms.jsp">Symptoms</a></li>
+	                                                    <li><a href="causes.jsp">Causes</a></li>
+	                                                    <li><a href="diagnosis.jsp">Diagnosis</a></li>
+	                                                    <li><a href="Infertility.jsp">Infertility</a></li>
+	                                                    <li><a href="adhesions.jsp">Adhesions</a></li>
+	                                             </ul>
                                             </li>
-                                             <li><a href="services.html">Community</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="contact.html"><i class="bi bi-person-lines-fill " ></i></a></li>
-                                            <li><a href="contact.html"><i class="bi bi-bell-fill"></i></a></li>                                            
-                                        </ul>
+                                            <li><a href="article.jsp">News</a></li>                                       
+                                            <li><a href="#">Services</a>
+	                                              <ul class="submenu">
+	                                                    <li><a href="test_endo.jsp">Test</a></li>
+	                                                    <li><a href="evolution.jsp">Evolution of pain</a></li>
+	                                                    <li><a href="suivi.jsp">Process</a></li>
+	                                              </ul>
+                                            </li>
+						           <li><a href="AllBlogs">Community</a></li>
+                                            <li><a href="contact.jsp">Contact</a></li>   
+                                             <li>  
+												            <a><i class="bi bi-person-lines-fill"></i></a>   
+												            <ul class="submenu">
+			                                                    <li><a href="Profile"><i class="bi bi-person-circle"></i> edit-Profile</a></li>
+			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
+			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
+			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>
+			                                                    <li><a href="Logout"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
+			                                               </ul>	                  
+                                            </li>
+                                   </ul>
                                     </nav>
                                 </div>
-                                <div class="header-right-btn f-right d-none d-lg-block ml-14">
-                                    <a href="#" class="btn header-btn">Start your test now !</a>
-                                </div>
+                                 </div>
+                                  	<div class="create justify-content-center">
+							            <div class="profile-pic">
+							                <img src="assets/img/logo/profile-8.jpg" alt="pic 1" />
+							            </div>
+							            <div class="handle">
+							              
+							                <p class=""><a href="profile"> ${user.name}</a></p>
+							            </div>
+							        </div>
                                 
-                                
-                            </div>
+                                <style>
+                                .create{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+    justify-content : center ;
+    gap: 1rem;
+    position : relative;
+    top: 10px;
+}
+                                 .profile-pic{
+    position: relative;
+    overflow: visible;
+}
+
+ .profile-pic img{    
+ 	width: 50px;
+    border-radius: 50%;
+}
+.handle p a{
+	color: black;
+}
+
+
+</style>
+                           
                         </div>   
                         <!-- Mobile Menu -->
                         <div class="col-12">
@@ -98,7 +146,6 @@
         <!-- Header End -->
     </header>
     
-
 
 
 
@@ -142,7 +189,7 @@
                                 </a>
                             </div>
                             <div class="blog_details">
-                                <a class="d-inline-block" href="blog_details.html">
+                                <a class="d-inline-block" href="detailnews.jsp">
                                     <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
                                 </a>
                                 <p>That dominion stars lights dominion divide years for fourth have don't stars is that
@@ -165,7 +212,7 @@
                                 </a>
                             </div>
                             <div class="blog_details">
-                                <a class="d-inline-block" href="blog_details.html">
+                                <a class="d-inline-block" href="detailnews.jsp">
                                     <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
                                 </a>
                                 <p>That dominion stars lights dominion divide years for fourth have don't stars is that
