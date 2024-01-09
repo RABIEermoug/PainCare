@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -34,16 +35,7 @@
 
 <body>
  <!-- ? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+  
     <!-- Preloader Start -->
        <!-- Preloader Start -->
     <header>
@@ -74,7 +66,7 @@
 	                                                    <li><a href="adhesions.jsp">Adhesions</a></li>
 	                                             </ul>
                                             </li>
-                                            <li><a href="article.jsp">News</a></li>                                       
+                                            <li><a href="ScrappingServlet">News</a></li>                                       
                                             <li><a href="#">Services</a>
 	                                              <ul class="submenu">
 	                                                    <li><a href="test_endo.jsp">Test</a></li>
@@ -180,28 +172,31 @@
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
+                <c:if test="${not empty scrapedDataList}">
+    <c:forEach var="data" items="${scrapedDataList}">
+    <c:if test="${not empty data.date}">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="assets/img/blog/single_blog_1.png" alt="">
+                                <img class="card-img rounded-0" src="https://i.insider.com/6577462b0ec98e92f74e2982?width=1300&format=jpeg&auto=webp" alt="">
                                 <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
+                                    
+                                    <p>${data.date}</p>
                                 </a>
                             </div>
                             <div class="blog_details">
-                                <a class="d-inline-block" href="detailnews.jsp">
-                                    <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
+                                <a class="d-inline-block" href="${data.relativeLink}">
+                                    <h2 class="blog-head" style="color: #2d2d2d;">${data.title}</h2>
                                 </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                he earth it first without heaven in place seed it second morning saying.</p>
+                                <p>${data.paragraphe}</p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i> Health</a></li>
                                    
                                 </ul>
                             </div>
                         </article>
-                        
-                       
+                        </c:if>
+                       </c:forEach>
+</c:if>
                         
                         <article class="blog_item">
                             <div class="blog_item_img">

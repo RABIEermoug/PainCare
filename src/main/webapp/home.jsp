@@ -82,7 +82,7 @@
 	                                                    <li><a href="adhesions.jsp">Adhesions</a></li>
 	                                             </ul>
                                             </li>
-                                            <li><a href="article.jsp">News</a></li>                                       
+                                            <li><a href="ScrappingServlet">News</a></li>                                       
                                             <li><a href="#">Services</a>
 	                                              <ul class="submenu">
 	                                                    <li><a href="test_endo.jsp">Test</a></li>
