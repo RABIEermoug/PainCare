@@ -87,7 +87,7 @@
 	                                              <ul class="submenu">
 	                                                    <li><a href="test_endo.jsp">Test</a></li>
 	                                                    <li><a href="EvolutionPain">Evolution of pain</a></li>
-	                                                    <li><a href="ProcessPainReport">Process</a></li>
+	                                                    <li><a href="suivi.jsp">Process</a></li>
 	                                              </ul>
                                             </li>
 						           <li><a href="AllBlogs">Community</a></li>
@@ -97,7 +97,7 @@
 												            <ul class="submenu">
 			                                                    <li><a href="Profile"><i class="bi bi-person-circle"></i> edit-Profile</a></li>
 			                                                    <li><a href=""><i class="bi bi-bell-fill"></i> Notification</a></li>
-			                                                    <li><a href=""><i class="bi bi-calendar-heart"></i> Calendar</a></li>
+			                                                    <li><a href="calendriers.jsp"><i class="bi bi-calendar-heart"></i> Calendar</a></li>
 			                                                    <li><a href=""><i class="bi bi-gear"></i> Setting</a></li>
 			                                                    <li><a href="Logout"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
 			                                               </ul>	                  
@@ -177,7 +177,9 @@
                                         <ul id="navigation">
                                         <li>
                                              <ul class="submenu" >
-	                                                    <li> <a href="test_endo.jsp" class="btn header-btn">Start your test now !</a></li>
+	                                                    <li > <a style="width: 250px;" href="test_endo.jsp" class="btn header-btn">Start your test now !</a></li> 
+	                                                     <li > <a style="width: 250px;" href="EvolutionPain" class="btn header-btn">Evolution of Pain !</a></li>
+	                                                       <li > <a style="width: 250px;" href=suivi.jsp class="btn header-btn">Evolution Test  !</a></li>
 	                                                    
 	                                             </ul>
                                         </li>

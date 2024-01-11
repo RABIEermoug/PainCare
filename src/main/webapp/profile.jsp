@@ -77,7 +77,7 @@
 	                                              <ul class="submenu">
 	                                                    <li><a href="test_endo.jsp">Test</a></li>
 	                                                    <li><a href="EvolutionPain">Evolution of pain</a></li>
-	                                                    <li><a href="ProcessPainReport">Process</a></li>
+	                                                    <li><a href="suivi.jsp">Process</a></li>
 	                                              </ul>
                                             </li>
 						           <li><a href="AllBlogs">Community</a></li>

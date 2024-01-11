@@ -57,7 +57,6 @@ public class EvolutionPainServlet extends HttpServlet {
 	            // Placez les données dans la session ou la requête
 	            request.setAttribute("jsonData", jsonData);
 
-	            System.out.println(jsonData);
 	            // Redirigez vers la page JSP
 	            request.getRequestDispatcher("evolution_pain.jsp").forward(request, response);
 	        } catch (Exception e) {

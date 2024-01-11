@@ -54,10 +54,10 @@ public class ProcessPainReportServlet extends HttpServlet {
         String[] feelings = request.getParameterValues("feelings");
 
         // Construire une chaîne unique pour chaque tableau de valeurs
-        String painLocationsStr = String.join(", ", painLocations);
-        String symptomsStr = String.join(", ", symptoms);
-        String worsePainStr = String.join(", ", worsePain);
-        String feelingsStr = String.join(", ", feelings);
+        String painLocationsStr = (painLocations != null) ? String.join(", ", painLocations) : null;
+        String symptomsStr = (symptoms != null) ? String.join(", ", symptoms) : null;
+        String worsePainStr = (worsePain != null) ? String.join(", ", worsePain) : null;
+        String feelingsStr = (feelings != null) ? String.join(", ", feelings) : null;
         
         // Créer une instance de PainReportEntity avec les valeurs du formulaire
         PainReportEntity painReport = new PainReportEntity();

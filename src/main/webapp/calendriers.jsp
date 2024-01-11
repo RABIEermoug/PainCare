@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Calendriers</title>
 </head>
 <body>
+
     <div class="elegant-calencar">
        <p id="reset">reset</p>
         <div id="header" class="clearfix">
