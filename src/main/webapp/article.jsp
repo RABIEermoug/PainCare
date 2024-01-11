@@ -70,8 +70,8 @@
                                             <li><a href="#">Services</a>
 	                                              <ul class="submenu">
 	                                                    <li><a href="test_endo.jsp">Test</a></li>
-	                                                    <li><a href="evolution.jsp">Evolution of pain</a></li>
-	                                                    <li><a href="suivi.jsp">Process</a></li>
+	                                                    <li><a href="EvolutionPain">Evolution of pain</a></li>
+	                                                    <li><a href="ProcessPainReport">Process</a></li>
 	                                              </ul>
                                             </li>
 						           <li><a href="AllBlogs">Community</a></li>
@@ -180,7 +180,7 @@
                                 <img class="card-img rounded-0" src="https://i.insider.com/6577462b0ec98e92f74e2982?width=1300&format=jpeg&auto=webp" alt="">
                                 <a href="#" class="blog_item_date">
                                     
-                                    <p>${data.date}</p>
+                                    <H4>${data.date}</H4>
                                 </a>
                             </div>
                             <div class="blog_details">

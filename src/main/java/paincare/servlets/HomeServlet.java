@@ -32,9 +32,10 @@ public class HomeServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		UserEntity sessionUser = (UserEntity) session.getAttribute("sessionuser");
-		System.out.println(sessionUser.getIdUser());
+
 		
 		request.setAttribute("user", sessionUser);
+		System.out.println(sessionUser.getIdUser());
 		request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 

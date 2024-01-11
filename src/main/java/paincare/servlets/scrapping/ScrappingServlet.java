@@ -6,7 +6,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import paincare.entities.ScrapedData;
+import paincare.entities.UserEntity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +39,9 @@ public class ScrappingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		 // Liste pour stocker les données scrapées
+				HttpSession session = request.getSession();
+				UserEntity sessionUser = (UserEntity) session.getAttribute("sessionuser");
+				request.setAttribute("user", sessionUser);
 		List<ScrapedData> scrapedDataList = new ArrayList<>();
 
         // URL des pages à scraper
@@ -65,7 +70,30 @@ public class ScrappingServlet extends HttpServlet {
         		        
                		Element image = article.select(".tout-image-wrapper .lazy-holder img").first();
                	 String imageUrl = article.select(".tout-image-wrapper .lazy-holder img").attr("src");
-      		       
+                 System.out.println("=============================");	
+       	      System.out.println(imageUrl);
+       	      System.out.println(title);
+       	   System.out.println("date date " + date);
+         	      System.out.println("=============================");
+         	     ScrapedData scrapedDataItem = new ScrapedData(title, paragraphe, imageUrl, relativeLink, date);
+  		       scrapedDataList.add(scrapedDataItem);
+	                }
+                }
+                if (url.equals("https://www.businessinsider.com/health")){
+                	articles = doc.select(".river-item");
+                	
+                	for (Element article : articles) {
+               		 String title = article.select("h2 > a").text();
+               		 String paragraphe = article.select(".tout-copy").text();
+               		String date = article.select(".tout-tag span").text();
+               		 String absoluteLink = article.select("h2 > a").attr("href");
+
+        		        // Construire l'URL absolue en combinant l'URL de base et le lien relatif
+        		        String relativeLink = "https://www.businessinsider.com" + absoluteLink;
+        		        
+        		        Element image = article.select(".tout-image-wrapper .lazy-holder img").first();
+        		        String imageUrl = article.select(".tout-image-wrapper .lazy-holder img").attr("src");
+
         		       ScrapedData scrapedDataItem = new ScrapedData(title, paragraphe, imageUrl, relativeLink, date);
         		       scrapedDataList.add(scrapedDataItem);
 	                }
@@ -81,10 +109,7 @@ public class ScrappingServlet extends HttpServlet {
         		        
                		Element image = article.select("a img").first();
                	 String imageUrl = article.select("a img").attr("src");
-          	      System.out.println("=============================");	
-        	      System.out.println(imageUrl);
-        	      System.out.println(title);
-          	      System.out.println("=============================");
+          	 
         		       ScrapedData scrapedDataItem = new ScrapedData(title, paragraphe, imageUrl, relativeLink, date);
         		       scrapedDataList.add(scrapedDataItem);
 	                }
@@ -109,26 +134,8 @@ public class ScrappingServlet extends HttpServlet {
  	                }
                 	
                 }
-                if (url.equals("https://www.businessinsider.com/health")){
-                	articles = doc.select(".river-item");
-                	
-                	for (Element article : articles) {
-               		 String title = article.select("h2 > a").text();
-               		 String paragraphe = article.select(".tout-copy").text();
-               		String date = article.select(".tout-tag span").text();
-               		 String absoluteLink = article.select("h2 > a").attr("href");
-
-        		        // Construire l'URL absolue en combinant l'URL de base et le lien relatif
-        		        String relativeLink = "https://www.businessinsider.com" + absoluteLink;
-        		        
-        		        Element image = article.select(".tout-image-wrapper .lazy-holder img").first();
-        		        String imageUrl = article.select(".tout-image-wrapper .lazy-holder img").attr("src");
-
-        		       ScrapedData scrapedDataItem = new ScrapedData(title, paragraphe, imageUrl, relativeLink, date);
-        		       scrapedDataList.add(scrapedDataItem);
-	                }
-                }
               
+               
 
                 // Ajouter la liste à la portée de la requête
                 request.setAttribute("scrapedDataList", scrapedDataList);

@@ -1,25 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.util.Base64" %>
-<%@ page import="java.nio.charset.StandardCharsets" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-
-
-<title>Community</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/community.css">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Pain Evolution</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
-    
+
+	<link rel="stylesheet" href="css/cercle.css">
+	<link rel="stylesheet" href="css/boutton_dans_evolution.css">
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/slicknav.css">
@@ -41,9 +37,22 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
 </head>
 <body>
-  <!-- Preloader Start -->
+ <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
     <header>
         <!--? Header Start -->
         <div class="header-area">
@@ -143,139 +152,136 @@
         </div>
         <!-- Header End -->
     </header>
-    	<!--? Slider Area Start-->
-		<div class="slider-area slider-area2">
-			<div class="slider-active dot-style">
-				<!-- Slider Single -->
-				<div class="single-slider  d-flex align-items-center slider-height2">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-xl-7 col-lg-8 col-md-10 ">
-								<div class="hero-wrapper">
-									<div class="hero__caption">
-										<h1 data-animation="fadeInUp" data-delay=".3s">Community space </h1>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>    
-			</div>
-		</div>
-		<!-- Slider Area End -->
-<div class="container bootdey"> 
-<div class="col-md-12 bootstrap snippets">
-<div style="display : flex; width:100%; justify-content: end;">
- <ul class="submenu" >
-          <li> <a href="addBlog" class="btn header-btn">Publier !</a></li>
-	                                                    
- </ul>
-</div>
-<c:forEach var="blog" items="${blogs}">
-<div class="panel">
-	<div class="panel-body">
-<!--  Utilisteur 1 -->
-			<div class="media-block">
-				<a class="media-left" href="#"><img class="img-circle img-sm" alt="Profile Picture" src="assets/img/icon/profile-par-defaut.webp"></a>
-				<div class="media-body">
-				<div class="mar-btm">
-				<a href="#" style="font-size: 14px;" class="btn-link text-semibold media-heading box-inline">${blog.username}</a>
-				<p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - ${ blog.date }</p>
-				</div>
-					<div style="display : flex; flex-diretion: row; gap:30px;">
-						<div>
-								<img class="img-responsive thumbnail" style="width: 350px;" src="data:image/png;base64,${Base64.getEncoder().encodeToString(blog.image)}" alt="Image">
-						</div>
-						<div>
-								<h2>${blog.title}</h2>
-				        		<p>${blog.description}</p>
-		        		</div>
-						
-					</div>	
-					<style>
-					 form {
-        display: flex;
-        flex-direction: row;      
-        background-color: #fff;
-        gap: 15px;
-    }
-					    input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin: 5px 0;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+    
+   <main style="display: flex; flex-direction: column; width: 100%; justify-content: center; align-items: center; ">
+    <div style="display: flex; flex-direction: column; justify-content: center; padding: 55px;">
+     
+            <div>
+                <h2 id="averagePain" style=" padding: 25px;">La Moyenne de la douleur : </h2>
+            </div>
+            <div style="width: 800px;">
+                <canvas id="pain_evolution"></canvas>
+            </div>
+        </div>
+    
+</main>
+
+    <script>
+    var Ctx = document.getElementById("pain_evolution").getContext("2d")
+
+  // Récupérez les données JSON depuis la session ou la requête
+    var jsonData = ${requestScope.jsonData};
+
+
+    var data = {
+        labels: jsonData.map(entry => entry.createdAt).reverse(), // Supposons que votre objet PainData a une propriété "date"
+        datasets: [{
+            label: '# pain evolution',
+            data: jsonData.map(entry => entry.painLevel).reverse(), // Supposons que votre objet PainData a une propriété "painLevel"
+            borderColor: '#FD2D00',
+            backgroundColor: '#9BD0F5',
+            borderWidth: 1
+        }]
+    };
+
+    var options = {
+        scales: {
+            x: [{
+                type: 'time',
+                time: {
+                    unit: 'day' // Vous pouvez ajuster l'unité en fonction de vos besoins (jour, mois, année, etc.)
+                },
+                title: {
+                    display: true,
+                    text: 'Date'
+                }
+            }],
+            y: {
+                title: {
+                    display: true,
+                    text: 'Pain Evolution'
+                }
+            },
+            maintainAspectRatio: false // Essayez de définir cette option sur true ou false selon vos besoins
+        }
+    };
+    var config = {
+        type: 'line' ,
+        data: data,
+        options: options
     }
 
-    input[type="submit"] {
-        background-color: #007bff;
-        color: #fff;
-        padding: 5px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
+    var pain_evolution = new Chart(Ctx , config);
+
+
+ // Calculer la moyenne
+    var averagePainLevel = calculateAverage(jsonData.map(entry => entry.painLevel));
+
+    // Obtenez la référence de la balise <h2>
+    var h2Element = document.querySelector('h2');
+
+    // Mettez à jour le contenu de la balise <h2> avec la moyenne calculée
+    h2Element.textContent = 'La Moyenne de la douleur : ' + averagePainLevel.toFixed(2);
+
+    // Fonction pour calculer la moyenne
+    function calculateAverage(values) {
+        if (values.length === 0) {
+            return 0;
+        }
+        var sum = values.reduce((acc, value) => acc + value, 0);
+        return sum / values.length;
     }
-
-    input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-
-    input[type="hidden"] {
-        display: none; /* Masquer le champ "hidden" si nécessaire */
-    }</style>
-				<div class="pad-ver" >
-					 	<form action="AddCommentaire"  method="post">
-					    		 <input type="hidden" name="blogid" value="${blog.id }" />
-					            <input type="text" name="commentaire_saisie" placeholder="Saisir un comment"  />
-					            <input type="submit" value="Comment"> 
-					    </form>
-				</div>
-				<br>
-				<h4>Comments : </h4>
-				<hr>
-				
-				 <c:forEach var="commentaire" items="${commentaires}">
-				 <c:if test="${commentaire.blog_id == blog.id}">
-							<div>
-								<div class="media-block">
-								<a class="media-left" href="#"><img class="img-circle img-sm" alt="Profile Picture" src="assets/img/icon/profile-par-defaut.webp"></a>
-								<div class="media-body">
-								<div class="mar-btm">
-								<a href="#" style="font-size: 14px;" class="btn-link text-semibold media-heading box-inline">${commentaire.userName}</a>
-								<p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i>  ${commentaire.date}</p>
-								</div>
-								<div style="display : flex; flex-diretion: row;  justify-content: space-between;">
-								<div>
-								<p>${commentaire.content} </p>
-								</div>
-								<div class="pad-ver">
-								<c:if test="${commentaire.user_id == blog.user_id}">
-												<form action="DeleteCommentaire"  method="post">
-											    		 <input type="hidden" name="commentid" value="${commentaire.id }" />
-											            <input type="submit" value="Supprimer"> 
-											    </form>
-									</c:if>
-								</div>
-								</div>
-								<hr>
-								</div>
-								</div>
-							</div>
-							</c:if>
-				   </c:forEach>
-				</div>
-			</div>
-   </div>
-</div>
-
-</c:forEach>
-
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	
 </script>
+
+<br><br><br><br><br>
+
+		<div class="cards">
+		    <div class="card red">
+			    <p class="tip">Symptoms</p>
+			    <p class="second-text" style="color:black;">
+				        <% 
+				           String[] symptoms = (String[]) request.getAttribute("prefer");
+				           if (symptoms != null) {
+				               for (String sym : symptoms) {
+				                   out.println(sym);
+				                   out.println(" - " );
+				               }
+				           }
+				        %>
+                </p>
+       </div>
+		    
+		    
+		    
+		    <div class="card blue">
+		        <p class="tip">What makes the pain worse?</p>
+		        <p class="second-text" style="color:black;">
+				        <% 
+				           String[] factorsWorseningPain = (String[]) request.getAttribute("work");
+				           if (symptoms != null) {
+				               for (String wo : factorsWorseningPain) {
+				                   out.println(wo);
+				                   out.println(" - " );
+				               }
+				           }
+				        %>
+                </p>
+		    </div>
+		    <div class="card green">
+		        <p class="tip">Feelings</p>
+		        <p class="second-text" style="color:black;">
+				        <% 
+				           String[] feelings = (String[]) request.getAttribute("size");
+				           if (feelings != null) {
+				               for (String feeling : feelings) {
+				                   out.println(feeling);
+				                   out.println(" - " );
+				               }
+				           }
+				        %>
+                </p>
+		    </div>
+		</div>
 
 
 <footer>
@@ -365,6 +371,7 @@
 <div id="back-top" >
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
+
 <!-- JS here -->
 
 <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
@@ -407,6 +414,6 @@
 <script src="./assets/js/main.js"></script>
 
 
-
 </body>
 </html>
+

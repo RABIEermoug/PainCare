@@ -129,4 +129,34 @@
     <servlet-name>ScrappingServlet</servlet-name>
     <url-pattern>/ScrappingServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCommentaireServlet</display-name>
+    <servlet-name>DeleteCommentaireServlet</servlet-name>
+    <servlet-class>paincare.servlets.Blog.DeleteCommentaireServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCommentaireServlet</servlet-name>
+    <url-pattern>/DeleteCommentaire</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProcessPainReportServlet</display-name>
+    <servlet-name>ProcessPainReportServlet</servlet-name>
+    <servlet-class>paincare.servlets.painreport.ProcessPainReportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessPainReportServlet</servlet-name>
+    <url-pattern>/ProcessPainReport</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EvolutionPainServlet</display-name>
+    <servlet-name>EvolutionPainServlet</servlet-name>
+    <servlet-class>paincare.servlets.painreport.EvolutionPainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EvolutionPainServlet</servlet-name>
+    <url-pattern>/EvolutionPain</url-pattern>
+  </servlet-mapping>
 </web-app>
